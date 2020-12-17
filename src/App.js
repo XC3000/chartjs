@@ -10,14 +10,14 @@ const { Option } = Select;
 
 function App() {
   const [principal, setPrincipal] = useState(15000);
-  const [years, setYears] = useState(1);
+  const [years, setYears] = useState(10);
   const [currencyicon, setCurrencyicon] = useState("₹");
   const [risk, setRisk] = useState("low");
   const [inputs, setInputs] = useState({
     sip: 15000,
     cagr: 7,
-    time: years,
-    curr: currencyicon,
+    time: 10,
+    curr: "₹",
   });
 
   window.addEventListener("resize", changeDivSize);
@@ -92,13 +92,18 @@ function App() {
               <input
                 type="number"
                 maxLength="6"
+                value={principal}
                 onChange={(e) => setPrincipal(e.target.value)}
               />{" "}
               every month. <br />
               at{" "}
               <Select
                 defaultValue="low"
-                style={{ width: 120, fontSize: "18px", fontWeight: "400" }}
+                style={{
+                  width: 120,
+                  fontSize: "18px",
+                  fontWeight: "400",
+                }}
                 onChange={handleChange}
               >
                 <Option value="low">Low</Option>
@@ -109,7 +114,7 @@ function App() {
               <input
                 type="number"
                 onChange={(e) => setYears(e.target.value)}
-                defaultValue="1"
+                value={years}
                 min="1"
               />{" "}
               years
