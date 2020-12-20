@@ -72,7 +72,7 @@ function App() {
       }
     }
 
-    if (principal.substring(0, 1) === "₹" || principal.substring(0, 1) === "$") {
+    if (principal.substring(0) === "₹" || principal.substring(0) === "$") {
       setNewprincipal(parseInt(principal.substring(1, principal)));
     } else {
       setNewprincipal(parseInt(principal));
