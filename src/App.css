@@ -40,7 +40,7 @@ p {
   display: grid;
   gap: 1rem;
   grid-template-columns: 4fr 7fr;
-  grid-template-rows: max-content max-content;
+  grid-template-rows: max-content min-content;
   justify-items: center;
   align-items: center;
 }
@@ -280,11 +280,10 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .data-overlay {
-    font-size: 0.8rem;
-    margin: 0 auto;
+    font-size: 1rem;
+    margin: 0 0.5em;
+    top: 10px;
     position: relative;
-    right: 3rem;
-    width: max-content;
   }
 
   .edufund__select__dropdown {

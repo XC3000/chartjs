@@ -8,7 +8,7 @@ import blackgraph from "../src/images/black.png";
 function App() {
   const [currencyicon, setCurrencyicon] = useState("₹");
   /* const [selectValue, setSelectValue] = useState(""); */
-  const [principal, setPrincipal] = useState(currencyicon);
+  const [principal, setPrincipal] = useState(`${currencyicon}15000`);
   const [newprincipal, setNewprincipal] = useState(15000);
   const [years, setYears] = useState(1);
   /* const [principal, setPrincipal] = useState(15000);
@@ -21,11 +21,12 @@ function App() {
     curr: "₹",
   });
 
-  window.addEventListener("resize", changeDivSize);
+  // window.addEventListener("resize", changeDivSize);
 
-  function changeDivSize() {
-    window.location.reload();
-  }
+  // function changeDivSize() {
+  //   alert(1);
+  //   window.location.reload();
+  // }
 
   function handleChange(value) {
     setRisk(value);
@@ -101,6 +102,7 @@ function App() {
       principal.substring(0, 1) === "$"
     ) {
       setNewprincipal(parseInt(principal.substring(1, principal.length)));
+      console.log({ sip: principal });
     } else {
       setNewprincipal(parseInt(principal));
     }
@@ -111,8 +113,8 @@ function App() {
       time: years,
       curr: currencyicon,
     });
-    console.log(principal, years, currencyicon, risk);
-  }, [principal, years, currencyicon, risk]);
+    // console.log(principal, years, currencyicon, risk);
+  }, [principal, years, currencyicon, risk, newprincipal]);
 
   function handleDropdownChange(e) {
     setRisk(e.target.value);
