@@ -115,6 +115,11 @@ input[type="number"]::-webkit-outer-spin-button {
   grid-column: 2 / 3;
   height: calc(100% - 20px);
   width: 90%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media only screen and (max-width: 1050px) {
@@ -156,38 +161,6 @@ input[type="number"]::-webkit-outer-spin-button {
 .data-total {
   font-weight: bold;
   font-family: monospace;
-}
-
-@media only screen and (max-width: 768px) {
-  .edufund__rangeselect {
-    grid-column: 1 / 3;
-  }
-
-  .edufund__chart {
-    grid-column: 1 / 3;
-    width: 100%;
-  }
-
-  .charts-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .data-overlay {
-    font-size: 0.8rem;
-    margin: 0 auto;
-    position: relative;
-    right: 3rem;
-    width: max-content;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .edufund__select__dropdown {
-    padding-left: 35px;
-  }
 }
 
 .edufund__rangeselect__currencyselect {
@@ -283,4 +256,38 @@ input[type="number"]::-webkit-outer-spin-button {
   line-height: 2;
   letter-spacing: 0.19px;
   color: #354059;
+}
+
+@media only screen and (max-width: 768px) {
+  .edufund {
+    height: 100%;
+  }
+
+  .edufund__rangeselect {
+    grid-column: 1 / 3;
+  }
+
+  .edufund__chart {
+    grid-column: 1 / 3;
+    width: 95%;
+  }
+
+  .charts-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .data-overlay {
+    font-size: 0.8rem;
+    margin: 0 auto;
+    position: relative;
+    right: 3rem;
+    width: max-content;
+  }
+
+  .edufund__select__dropdown {
+    padding-left: 35px;
+  }
 }
