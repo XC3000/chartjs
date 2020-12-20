@@ -120,6 +120,7 @@ class Charts extends Component {
               title: (toolTipItem) => `Month: ${toolTipItem[0]["label"]}`,
             },
           },
+          aspectRatio: 1,
         },
       }),
     });
