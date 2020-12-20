@@ -120,6 +120,7 @@ function App() {
 
   return (
     <div className="App">
+      <div style={{ font: "3rem" }}>Before</div>
       <div className="edufund">
         <div className="edufund__rangeselect">
           <div className="edufund__rangeslect__firstsection">
@@ -237,6 +238,7 @@ function App() {
           <Charts inputs={inputs} />
         </div>
       </div>
+      <div style={{ font: "3rem" }}>After</div>
     </div>
   );
 }
