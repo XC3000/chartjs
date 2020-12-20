@@ -10,13 +10,15 @@ function App() {
   const [principal, setPrincipal] = useState("");
   const [newprincipal, setNewprincipal] = useState(0);
   const [years, setYears] = useState(1);
+  /* const [principal, setPrincipal] = useState(15000);
+  const [years, setYears] = useState(10); */
   const [currencyicon, setCurrencyicon] = useState("₹");
   const [risk, setRisk] = useState("low");
   const [inputs, setInputs] = useState({
     sip: 15000,
     cagr: 7,
-    time: years,
-    curr: currencyicon,
+    time: 10,
+    curr: "₹",
   });
 
   window.addEventListener("resize", changeDivSize);
@@ -125,7 +127,7 @@ function App() {
               <input
                 type="number"
                 onChange={(e) => setYears(e.target.value)}
-                defaultValue="1"
+                value={years}
                 min="1"
               />{" "}
               years

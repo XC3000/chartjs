@@ -97,7 +97,9 @@ p {
 }
 
 .edufund__chart {
-  background-color: rgb(235, 255, 227);
+  box-shadow: 0 10px 24px 0 rgba(156, 162, 174, 0.26);
+  border: solid 1px rgba(11, 27, 62, 0.05);
+  background-color: #fff;
   margin: 10px;
   padding: 20px;
   grid-column: 2 / 3;
