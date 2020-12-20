@@ -2,14 +2,13 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import Charts from "./Charts";
-import { Select } from "antd";
 import greengraph from "../src/images/green.png";
 import blackgraph from "../src/images/black.png";
 
-const { Option } = Select;
-
 function App() {
-  const [principal, setPrincipal] = useState(15000);
+  const [selectValue, setSelectValue] = useState("");
+  const [principal, setPrincipal] = useState("");
+  const [newprincipal, setNewprincipal] = useState(0);
   const [years, setYears] = useState(1);
   const [currencyicon, setCurrencyicon] = useState("₹");
   const [risk, setRisk] = useState("low");
@@ -70,14 +69,27 @@ function App() {
         cagr = 13;
       }
     }
+
+    if (principal.substring(0) === "₹" || principal.substring(0) === "$") {
+      setNewprincipal(parseInt(principal.substring(1, principal)));
+    } else {
+      setNewprincipal(parseInt(principal));
+    }
+
     setInputs({
-      sip: principal,
+      sip: newprincipal,
       cagr: cagr,
       time: years,
       curr: currencyicon,
     });
     console.log(principal, years, currencyicon, risk);
   }, [principal, years, currencyicon, risk]);
+
+  function handleDropdownChange(e) {
+    setSelectValue(e.target.value);
+  }
+
+  console.log("selectValue", selectValue);
 
   return (
     <div className="App">
@@ -90,21 +102,25 @@ function App() {
             <div className="edufund__rangeselect__investment_details">
               I can invest{" "}
               <input
-                type="number"
-                maxLength="6"
-                onChange={(e) => setPrincipal(e.target.value)}
+                type="text"
+                value={principal}
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  setPrincipal(e.target.value);
+                }}
               />{" "}
               every month. <br />
               at{" "}
-              <Select
-                defaultValue="low"
-                style={{ width: 120, fontSize: "18px", fontWeight: "400" }}
-                onChange={handleChange}
+              <select
+                id="dropdown"
+                className="edufund__select__dropdown"
+                onChange={handleDropdownChange}
               >
-                <Option value="low">Low</Option>
-                <Option value="average">Average</Option>
-                <Option value="high">High</Option>
-              </Select>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
               risk for{" "}
               <input
                 type="number"
@@ -152,7 +168,7 @@ function App() {
                   style={{
                     fontSize: "0.7rem",
                     width: "60%",
-                    paddingTop: "5px",
+                    paddingTop: "10px",
                   }}
                 >
                   Due to scheme selection, asset allocation, & savings on
@@ -180,7 +196,7 @@ function App() {
                   style={{
                     fontSize: "0.7rem",
                     width: "60%",
-                    paddingTop: "5px",
+                    paddingTop: "10px",
                   }}
                 >
                   The weighted average return of an aggressive and conservative
