@@ -2,8 +2,6 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import Charts from "./Charts";
-import greengraph from "../src/images/green.png";
-import blackgraph from "../src/images/black.png";
 
 function App() {
   const [currencyicon, setCurrencyicon] = useState("₹");
@@ -181,7 +179,7 @@ function App() {
                 <img
                   width="35"
                   height="35"
-                  src={greengraph}
+                  src="https://chartsjs.s3.us-east-2.amazonaws.com/green.24327dbe.png"
                   alt="green graph"
                 />
                 <div className="edufund__expectations__text">
@@ -208,7 +206,7 @@ function App() {
                 <img
                   width="35"
                   height="35"
-                  src={blackgraph}
+                  src="https://chartsjs.s3.us-east-2.amazonaws.com/black.e868dd38.png"
                   alt="black graph"
                 />
                 <div className="edufund__expectations__text">
