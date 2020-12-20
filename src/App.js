@@ -117,6 +117,7 @@ function App() {
                 id="dropdown"
                 className="edufund__select__dropdown"
                 onChange={handleDropdownChange}
+                onBlur={handleDropdownChange}
               >
                 <option value="1">1</option>
                 <option value="2">2</option>
