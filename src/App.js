@@ -6,13 +6,13 @@ import greengraph from "../src/images/green.png";
 import blackgraph from "../src/images/black.png";
 
 function App() {
-  const [selectValue, setSelectValue] = useState("");
-  const [principal, setPrincipal] = useState("");
-  const [newprincipal, setNewprincipal] = useState(0);
+  const [currencyicon, setCurrencyicon] = useState("₹");
+  /* const [selectValue, setSelectValue] = useState(""); */
+  const [principal, setPrincipal] = useState(currencyicon);
+  const [newprincipal, setNewprincipal] = useState(15000);
   const [years, setYears] = useState(1);
   /* const [principal, setPrincipal] = useState(15000);
   const [years, setYears] = useState(10); */
-  const [currencyicon, setCurrencyicon] = useState("₹");
   const [risk, setRisk] = useState("low");
   const [inputs, setInputs] = useState({
     sip: 15000,
@@ -37,6 +37,14 @@ function App() {
     const value = e.target.value;
     if (value === "$") {
       setCurrencyicon("$");
+      if (principal.length > 1) {
+        let p1 = "$";
+        let p2 = principal.substring(1);
+        setPrincipal(p1 + p2);
+        settingprincipal(p1 + p2);
+      } else {
+        setPrincipal("$");
+      }
       if (!dollar.classList.contains("active")) {
         dollar.classList.add("active");
         if (indian.classList.contains("active"))
@@ -44,11 +52,27 @@ function App() {
       }
     } else if (value === "₹") {
       setCurrencyicon("₹");
+      if (principal.length > 1) {
+        let p1 = "₹";
+        let p2 = principal.substring(1);
+        setPrincipal(p1 + p2);
+        settingprincipal(p1 + p2);
+      } else {
+        setPrincipal("₹");
+      }
       if (!indian.classList.contains("active")) {
         indian.classList.add("active");
         if (dollar.classList.contains("active"))
           dollar.classList.remove("active");
       }
+    }
+  }
+
+  function settingprincipal(value) {
+    if (value.substring(0, 1) === "₹" || value.substring(0, 1) === "$") {
+      setNewprincipal(parseInt(value.substring(1, value.length)));
+    } else {
+      setNewprincipal(parseInt(value));
     }
   }
 
@@ -72,8 +96,11 @@ function App() {
       }
     }
 
-    if (principal.substring(0) === "₹" || principal.substring(0) === "$") {
-      setNewprincipal(parseInt(principal.substring(1, principal)));
+    if (
+      principal.substring(0, 1) === "₹" ||
+      principal.substring(0, 1) === "$"
+    ) {
+      setNewprincipal(parseInt(principal.substring(1, principal.length)));
     } else {
       setNewprincipal(parseInt(principal));
     }
@@ -88,10 +115,8 @@ function App() {
   }, [principal, years, currencyicon, risk]);
 
   function handleDropdownChange(e) {
-    setSelectValue(e.target.value);
+    setRisk(e.target.value);
   }
-
-  console.log("selectValue", selectValue);
 
   return (
     <div className="App">
@@ -119,10 +144,9 @@ function App() {
                 onChange={handleDropdownChange}
                 onBlur={handleDropdownChange}
               >
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+                <option value="low">Low</option>
+                <option value="average">Average</option>
+                <option value="high">High</option>
               </select>
               risk for{" "}
               <input

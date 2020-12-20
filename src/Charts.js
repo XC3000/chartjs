@@ -199,7 +199,6 @@ class Charts extends Component {
   };
 
   static getDerivedStateFromProps(props, state) {
-    console.log({ props, state });
     if (props.inputs !== state.inputs) {
       return {
         inputs: props.inputs,
