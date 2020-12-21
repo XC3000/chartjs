@@ -54,19 +54,23 @@ class Charts extends Component {
           // .filter((val, index) => index % 3 === 0),
           datasets: [
             {
-              label: "Accumulated Amount",
-              backgroundColor: "rgba(0,226,178, 0.4)",
-              borderColor: "rgba(0,226,178, 0.4)",
-              data: data.map(
-                ({ accumulatedAmount }) => accumulatedAmount / 1000
-              ),
+              label: "Invested Amount",
+              // backgroundColor: "rgb(3, 78, 0, 0.6)",
+              backgroundColor: "#021030",
+              // borderColor: "rgb(3, 78, 0, 0.6)",
+              borderColor: "#021030",
+              data: data.map(({ investedAmount }) => investedAmount / 1000),
               // .filter((val, index) => index % 3 === 0),
             },
             {
-              label: "Invested Amount",
-              backgroundColor: "rgb(3, 78, 0, 0.6)",
-              borderColor: "rgb(3, 78, 0, 0.6)",
-              data: data.map(({ investedAmount }) => investedAmount / 1000),
+              label: "Accumulated Amount",
+              // backgroundColor: "rgba(0,226,178, 0.4)",
+              // borderColor: "rgba(0,226,178, 0.4)",
+              backgroundColor: "#00e2b2",
+              borderColor: "#00e2b2",
+              data: data.map(
+                ({ accumulatedAmount }) => accumulatedAmount / 1000
+              ),
               // .filter((val, index) => index % 3 === 0),
             },
           ],
@@ -132,16 +136,18 @@ class Charts extends Component {
       labels: data.map(({ month }) => month),
       datasets: [
         {
-          label: "Accumulated Amount",
-          backgroundColor: "rgba(0,226,178, 0.4)",
-          borderColor: "rgba(0,226,178, 0.4)",
-          data: data.map(({ accumulatedAmount }) => accumulatedAmount / 1000),
+          label: "Invested Amount",
+          backgroundColor: "#021030",
+          borderColor: "#021030",
+          data: data.map(({ investedAmount }) => investedAmount / 1000),
         },
         {
-          label: "Invested Amount",
-          backgroundColor: "rgb(3, 78, 0, 0.6)",
-          borderColor: "rgb(3, 78, 0, 0.6)",
-          data: data.map(({ investedAmount }) => investedAmount / 1000),
+          label: "Accumulated Amount",
+          // backgroundColor: "rgba(0,226,178, 0.4)",
+          // borderColor: "rgba(0,226,178, 0.4)",
+          backgroundColor: "#00e2b2",
+          borderColor: "#00e2b2",
+          data: data.map(({ accumulatedAmount }) => accumulatedAmount / 1000),
         },
       ],
     };
