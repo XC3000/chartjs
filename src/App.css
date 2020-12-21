@@ -276,7 +276,7 @@ input[type="number"]::-webkit-outer-spin-button {
 @media only screen and (max-width: 768px) {
   .edufund {
     height: 100%;
-    grid-template-rows: min-content minmax(100%, max-content);
+    grid-template-rows: min-content min-content;
   }
 
   .edufund__rangeselect {
