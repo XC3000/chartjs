@@ -107,14 +107,14 @@ function App() {
 
     console.log(years);
 
-    if (years === "" || years === undefined) {
+    if (years === "" || years === undefined || isNaN(years)) {
       setYears(1);
     }
 
     setInputs({
       sip: newprincipal,
       cagr: cagr,
-      time: years,
+      time: years || 0,
       curr: currencyicon,
     });
     // console.log(principal, years, currencyicon, risk);

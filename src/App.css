@@ -15,7 +15,6 @@ p {
 }
 
 .App {
-  /* height: 100vh; */
   width: 100%;
   margin: 0 auto;
   position: relative;
@@ -155,14 +154,15 @@ input[type="number"]::-webkit-outer-spin-button {
 .data-overlay {
   display: inline-block;
   font-size: 20px;
-  /* position: absolute; */
   font-weight: 500;
   font-family: "Montserrat";
-  /* top: 25%;
-  left: 12%; */
   letter-spacing: 0.26px;
   color: #354059;
   background-color: rgba(170, 255, 199, 0.3);
+
+  position: absolute;
+  top: 15%;
+  left: 12%;
 }
 
 .data-overlay span:not(.data-total) {
@@ -304,6 +304,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
   .charts-container {
     display: flex;
+    padding-bottom: 0.5em;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -311,9 +312,11 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .data-overlay {
-    font-size: 1rem;
+    font-size: 0.75rem;
     padding: 0;
     margin-bottom: 0.5em;
+    top: 20%;
+    left: 20%;
   }
 
   .background {
