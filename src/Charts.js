@@ -19,17 +19,20 @@ class Charts extends Component {
   generateData = (callback) => {
     const inputs = Object.assign({}, this.state.inputs);
 
-    const returnPercent = (
-      (Math.pow(1 + inputs.cagr / 100, 1 / 12) - 1) *
-      100
-    ).toFixed(2);
+    const returnPercent = (Math.pow(1 + inputs.cagr / 100, 1 / 12) - 1) * 100;
     let accumulatedAmount = 0;
+    const accArr = [];
     const dataArray = [];
     for (let i = 1; i <= inputs.time * 12; i++) {
       const investedAmount = inputs.sip * i;
       let returnAmount =
-        (accumulatedAmount + investedAmount) * (returnPercent / 100);
-      accumulatedAmount = investedAmount + returnAmount;
+        Math.floor(investedAmount * (returnPercent / 100)) +
+        accArr.reduce(
+          (curr, val) => curr + Math.floor(val * (returnPercent / 100)),
+          0
+        );
+      accumulatedAmount = parseInt(investedAmount + returnAmount);
+      accArr.push(accumulatedAmount);
       dataArray.push({
         month: i,
         accumulatedAmount,
