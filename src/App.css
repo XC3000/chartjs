@@ -277,7 +277,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .background {
   /* border: 1px solid black; */
   width: 1045px;
-  height: 750px;
+  height: 699px;
   left: calc(50% - 522px);
   background-color: #f3fdf8;
   top: 10%;
