@@ -8,8 +8,8 @@
     "dev:mock": "cross-env PET_MOCK=mock npm run dev",
     "format": "prettier \"src/**/*.{js, html, css}\" --write",
     "lint": "eslint \"src/**/*.{js, jx}\" --quiet",
-    "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "dev": "rm -rf dist && parcel src/index.html",
+    "build": "rm -rf dist && parcel build src/index.html"
   },
   "keywords": [],
   "author": "",
