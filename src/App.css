@@ -16,16 +16,19 @@ p {
 
 .App {
   /* height: 100vh; */
-  max-width: 1170px;
+  width: 100%;
   margin: 0 auto;
+  position: relative;
+  padding-bottom: 7.5%;
 }
 
 .edufund__select__dropdown {
   outline: none;
   border: none;
   width: 30%;
-  padding-left: 40px;
+  /* padding-left: 40px; */
   margin: 0 20px;
+  text-align: center;
   border-bottom: solid 1px rgba(156, 162, 174, 0.26);
   font-size: 16px;
   font-weight: bold;
@@ -37,10 +40,12 @@ p {
 }
 
 .edufund {
-  padding: 3rem;
   /* height: 100%; */
   justify-content: center;
-  background-color: #f3fdf8;
+  /* background-color: #f3fdf8; */
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1170px;
 
   display: grid;
   gap: 30px;
@@ -53,7 +58,6 @@ p {
 .edufund__rangeselect {
   /* flex: 30%; */
   height: calc(100% - 20px);
-  margin: 10px;
   padding: 30px;
   font-size: 1.5rem;
   border-radius: 4px;
@@ -119,10 +123,9 @@ input[type="number"]::-webkit-outer-spin-button {
   box-shadow: 0 10px 24px 0 rgba(156, 162, 174, 0.26);
   border: solid 1px rgba(11, 27, 62, 0.05);
   background-color: #fff;
-  margin: 10px;
   grid-column: 2 / 3;
   height: calc(100% - 20px);
-  width: 90%;
+  width: 99%;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -151,13 +154,13 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .data-overlay {
+  display: inline-block;
   font-size: 20px;
   /* position: absolute; */
   font-weight: 500;
   font-family: "Montserrat";
   /* top: 25%;
   left: 12%; */
-  padding: 0.3em;
   letter-spacing: 0.26px;
   color: #354059;
   background-color: rgba(170, 255, 199, 0.3);
@@ -170,7 +173,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .data-total {
   font-weight: bold;
-  font-family: monospace;
 }
 
 .edufund__rangeselect__currencyselect {
@@ -273,6 +275,17 @@ input[type="number"]::-webkit-outer-spin-button {
   color: #354059;
 }
 
+.background {
+  /* border: 1px solid black; */
+  width: 1045px;
+  height: 750px;
+  left: calc(50% - 522px);
+  background-color: #f3fdf8;
+  top: 10%;
+  position: absolute;
+  z-index: -1;
+}
+
 @media only screen and (max-width: 768px) {
   .edufund {
     height: 100%;
@@ -286,6 +299,7 @@ input[type="number"]::-webkit-outer-spin-button {
   .edufund__chart {
     grid-column: 1 / 3;
     padding: 0;
+    padding-top: 1em;
     width: 95%;
   }
 
@@ -299,10 +313,13 @@ input[type="number"]::-webkit-outer-spin-button {
 
   .data-overlay {
     font-size: 1rem;
-    top: 10px;
   }
 
   .edufund__select__dropdown {
     padding-left: 35px;
+  }
+
+  .background {
+    display: none;
   }
 }

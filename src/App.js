@@ -237,6 +237,7 @@ function App() {
           <Charts inputs={inputs} />
         </div>
       </div>
+      <div className="background"></div>
     </div>
   );
 }
