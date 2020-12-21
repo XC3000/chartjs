@@ -105,6 +105,12 @@ function App() {
       setNewprincipal(parseInt(principal));
     }
 
+    console.log(years);
+
+    if (years === "" || years === undefined) {
+      setYears(1);
+    }
+
     setInputs({
       sip: newprincipal,
       cagr: cagr,
@@ -154,6 +160,9 @@ function App() {
                 onChange={(e) => setYears(e.target.value)}
                 value={years}
                 min="1"
+                style={{
+                  width: "15%",
+                }}
               />{" "}
               years
             </div>

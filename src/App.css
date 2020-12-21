@@ -23,12 +23,11 @@ p {
 }
 
 .edufund__select__dropdown {
+  text-align: center;
   outline: none;
   border: none;
-  width: 30%;
-  /* padding-left: 40px; */
-  margin: 0 20px;
-  text-align: center;
+  width: 27%;
+  margin: 0 10px;
   border-bottom: solid 1px rgba(156, 162, 174, 0.26);
   font-size: 16px;
   font-weight: bold;
@@ -70,7 +69,7 @@ p {
 .edufund__rangeslect__firstsection__text {
   font-family: "Montserrat", sans-serif;
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 700;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.36;
@@ -86,7 +85,7 @@ p {
 }
 
 .edufund__rangeselect__investment_details {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
   line-height: 1.75;
@@ -96,6 +95,7 @@ p {
 }
 
 .edufund__rangeselect__investment_details > input {
+  text-align: center;
   font-size: 16px;
   font-weight: bold;
   padding: 5px;
@@ -104,7 +104,6 @@ p {
   border: none;
   background: inherit;
   outline: none;
-  text-align: center;
   border-bottom: 1px solid #e4e5e9;
 }
 
@@ -179,12 +178,12 @@ input[type="number"]::-webkit-outer-spin-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 15px;
+  padding: 19px;
   width: 100%;
   height: 3rem;
   border-radius: 2px;
   border: solid 1px #ccf4ec;
-  margin-bottom: 1rem;
+  margin: 2rem 0;
 }
 
 .edufund__rangeselect__currencyselect p {
@@ -313,10 +312,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
   .data-overlay {
     font-size: 1rem;
-  }
-
-  .edufund__select__dropdown {
-    padding-left: 35px;
   }
 
   .background {
