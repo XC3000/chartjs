@@ -3,9 +3,6 @@
 html {
   font-size: 100%;
 }
-p {
-  margin: 0 !important;
-}
 
 * {
   margin: 0;
@@ -56,7 +53,7 @@ p {
 .edufund__rangeselect {
   /* flex: 30%; */
   height: calc(100% - 20px);
-  padding: 30px;
+  /* padding: 30px; */
   font-size: 1.5rem;
   border-radius: 4px;
   box-shadow: 0 10px 24px 0 rgba(156, 162, 174, 0.26);
@@ -74,7 +71,6 @@ p {
   line-height: 1.36;
   letter-spacing: normal;
   color: #021030;
-  margin-bottom: 3rem;
 }
 
 .edufund__rangeslect__firstsection {
@@ -83,11 +79,15 @@ p {
   padding-bottom: 10px;
 }
 
+.edufund__rangeslect__fsection {
+  padding: 30px;
+}
+
 .edufund__rangeselect__investment_details {
   font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
-  line-height: 1.75;
+  line-height: 2.5;
   letter-spacing: 0.26px;
   color: #354059;
   margin: 1.5rem 0;
@@ -184,7 +184,7 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 3rem;
   border-radius: 2px;
   border: solid 1px #ccf4ec;
-  margin: 2rem 0;
+  margin: 30px 1px 60px 0;
 }
 
 .edufund__rangeselect__currencyselect p {
@@ -229,6 +229,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .edufund__rangeselect__expectations {
   border-top: solid 1px #e4e5e9;
+  padding: 30px;
 }
 
 .edufund__rangeselect__expectations h2 {
@@ -287,6 +288,40 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 @media only screen and (max-width: 768px) {
+  .edufund__rangeslect__firstsection__text {
+    margin: 0 0 15px;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.63;
+    letter-spacing: normal;
+  }
+
+  .edufund__rangeslect__fsection {
+    padding: 20px;
+  }
+
+  .edufund__rangeselect__investment_details {
+    font-size: 12px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: 0.19px;
+  }
+
+  .edufund__rangeselect__currencyselect {
+    margin: 20px 0 40px;
+    padding: 11px 10px 10px 15px;
+  }
+
+  .edufund__rangeselect__currencyselect__buttons button {
+    width: 35px;
+    height: 30px;
+    padding: 0 0 0 6px;
+  }
+
   .edufund {
     height: 100%;
     grid-template-rows: min-content min-content;

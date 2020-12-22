@@ -123,56 +123,60 @@ function App() {
       <div className="edufund">
         <div className="edufund__rangeselect">
           <div className="edufund__rangeslect__firstsection">
-            <p className="edufund__rangeslect__firstsection__text">
-              It&apos;s your money. <br /> Make the most of it.
-            </p>
-            <div className="edufund__rangeselect__investment_details">
-              I can invest{" "}
-              <input
-                type="text"
-                value={principal}
-                onChange={(e) => {
-                  console.log(e.target.value);
-                  setPrincipal(e.target.value);
-                }}
-              />{" "}
-              every month. <br />
-              at{" "}
-              <select
-                id="dropdown"
-                className="edufund__select__dropdown"
-                onChange={handleDropdownChange}
-                onBlur={handleDropdownChange}
-              >
-                <option value="low">Low</option>
-                <option value="average">Average</option>
-                <option value="high">High</option>
-              </select>
-              risk for{" "}
-              <input
-                type="number"
-                onChange={(e) => setYears(e.target.value)}
-                value={years}
-                style={{
-                  width: "15%",
-                }}
-              />{" "}
-              years
-            </div>
-            <div className="edufund__rangeselect__currencyselect">
-              <p>Investment in</p>
-              <div className="edufund__rangeselect__currencyselect__buttons">
-                <button id="dollar-btn" value="$" onClick={getcurrencyicon}>
-                  $
-                </button>
-                <button
-                  id="inr-btn"
-                  value="₹"
-                  onClick={getcurrencyicon}
-                  className="active"
+            <div
+              className="edufund__rangeslect__fsection"
+            >
+              <p className="edufund__rangeslect__firstsection__text">
+                It&apos;s your money. <br /> Make the most of it.
+              </p>
+              <div className="edufund__rangeselect__investment_details">
+                I can invest{" "}
+                <input
+                  type="text"
+                  value={principal}
+                  onChange={(e) => {
+                    console.log(e.target.value);
+                    setPrincipal(e.target.value);
+                  }}
+                />{" "}
+                every month. <br />
+                at{" "}
+                <select
+                  id="dropdown"
+                  className="edufund__select__dropdown"
+                  onChange={handleDropdownChange}
+                  onBlur={handleDropdownChange}
                 >
-                  ₹
-                </button>
+                  <option value="low">Low</option>
+                  <option value="average">Average</option>
+                  <option value="high">High</option>
+                </select>
+                risk for{" "}
+                <input
+                  type="number"
+                  onChange={(e) => setYears(e.target.value)}
+                  value={years}
+                  style={{
+                    width: "15%",
+                  }}
+                />{" "}
+                years
+              </div>
+              <div className="edufund__rangeselect__currencyselect">
+                <p>Investment in</p>
+                <div className="edufund__rangeselect__currencyselect__buttons">
+                  <button id="dollar-btn" value="$" onClick={getcurrencyicon}>
+                    $
+                  </button>
+                  <button
+                    id="inr-btn"
+                    value="₹"
+                    onClick={getcurrencyicon}
+                    className="active"
+                  >
+                    ₹
+                  </button>
+                </div>
               </div>
             </div>
             <div className="edufund__rangeselect__expectations">
@@ -197,7 +201,7 @@ function App() {
                   style={{
                     fontSize: "0.7rem",
                     width: "60%",
-                    paddingTop: "10px",
+                    paddingTop: "2px",
                   }}
                 >
                   Due to scheme selection, asset allocation, & savings on
@@ -225,7 +229,7 @@ function App() {
                   style={{
                     fontSize: "0.7rem",
                     width: "60%",
-                    paddingTop: "10px",
+                    paddingTop: "2px",
                   }}
                 >
                   The weighted average return of an aggressive and conservative
