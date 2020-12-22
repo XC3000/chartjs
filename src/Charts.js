@@ -1,5 +1,6 @@
 /* eslint-disable react/no-direct-mutation-state */
 import React, { Component } from "react";
+import Finance from "financejs";
 import Chart from "chart.js";
 
 class Charts extends Component {
@@ -18,24 +19,21 @@ class Charts extends Component {
 
   generateData = (callback) => {
     const inputs = Object.assign({}, this.state.inputs);
+    const finance = new Finance();
 
     const returnPercent = (Math.pow(1 + inputs.cagr / 100, 1 / 12) - 1) * 100;
     let accumulatedAmount = 0;
-    const accArr = [];
     const dataArray = [];
     for (let i = 1; i <= inputs.time * 12; i++) {
       const investedAmount = inputs.sip * i;
-      let returnAmount =
-        Math.floor(investedAmount * (returnPercent / 100)) +
-        accArr.reduce(
-          (curr, val) => curr + Math.floor(val * (returnPercent / 100)),
-          0
-        );
-      accumulatedAmount = parseInt(investedAmount + returnAmount);
-      accArr.push(accumulatedAmount);
+      accumulatedAmount = finance.FV(
+        returnPercent,
+        inputs.sip + accumulatedAmount,
+        1
+      );
       dataArray.push({
         month: i,
-        accumulatedAmount,
+        accumulatedAmount: Math.round(accumulatedAmount),
         investedAmount,
       });
     }
@@ -191,11 +189,6 @@ class Charts extends Component {
           title: (toolTipItem) => `Month: ${toolTipItem[0]["label"]}`,
         },
       },
-      // scale: {
-      //   gridLines: {
-      //     display: false,
-      //   },
-      // },
     };
     this.state.chart.update({
       duration: 750,
