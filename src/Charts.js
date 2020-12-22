@@ -14,23 +14,23 @@ class Charts extends Component {
       },
     ],
     dataPoints: 1,
+    totalInv: 0,
+    totalAcc: 0,
     chart: null,
   };
 
   generateData = (callback) => {
-    const inputs = Object.assign({}, this.state.inputs);
+    let { time, cagr, sip } = Object.assign({}, this.state.inputs);
+    time = time === 0 ? 1 : time;
     const finance = new Finance();
 
-    const returnPercent = (Math.pow(1 + inputs.cagr / 100, 1 / 12) - 1) * 100;
-    let accumulatedAmount = 0;
+    const returnPercent = (Math.pow(1 + cagr / 100, 1 / 12) - 1) * 100;
+    let accumulatedAmount = 0,
+      investedAmount = 0;
     const dataArray = [];
-    for (let i = 1; i <= inputs.time * 12; i++) {
-      const investedAmount = inputs.sip * i;
-      accumulatedAmount = finance.FV(
-        returnPercent,
-        inputs.sip + accumulatedAmount,
-        1
-      );
+    for (let i = 1; i <= time * 12; i++) {
+      investedAmount = sip * i;
+      accumulatedAmount = finance.FV(returnPercent, sip + accumulatedAmount, 1);
       dataArray.push({
         month: i,
         accumulatedAmount: Math.round(accumulatedAmount),
@@ -38,9 +38,17 @@ class Charts extends Component {
       });
     }
 
-    this.setState({ data: dataArray, dataPoints: inputs.time * 12 }, () => {
-      if (callback) callback();
-    });
+    this.setState(
+      {
+        data: dataArray,
+        totalInv: investedAmount,
+        totalAcc: Math.round(accumulatedAmount),
+        dataPoints: time * 12,
+      },
+      () => {
+        if (callback) callback();
+      }
+    );
   };
 
   renderChart = () => {
@@ -215,7 +223,7 @@ class Charts extends Component {
   };
 
   render() {
-    const { data, dataPoints, inputs } = this.state;
+    const { inputs, totalAcc, totalInv } = this.state;
 
     return (
       <div className="charts-container">
@@ -223,15 +231,11 @@ class Charts extends Component {
         <div className="data-overlay">
           <span>
             Total Investment: {inputs.curr}
-            <span className="data-total">
-              {data[dataPoints - 1]["investedAmount"].toFixed(2)}
-            </span>
+            <span className="data-total">{totalInv}</span>
           </span>
           <span>
             Total Accumulation: {inputs.curr}
-            <span className="data-total">
-              {data[dataPoints - 1]["accumulatedAmount"].toFixed(2)}
-            </span>
+            <span className="data-total">{totalAcc}</span>
           </span>
         </div>
       </div>

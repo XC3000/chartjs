@@ -8,7 +8,7 @@ function App() {
   /* const [selectValue, setSelectValue] = useState(""); */
   const [principal, setPrincipal] = useState(`${currencyicon}15000`);
   const [newprincipal, setNewprincipal] = useState(15000);
-  const [years, setYears] = useState(1);
+  const [years, setYears] = useState(10);
   /* const [principal, setPrincipal] = useState(15000);
   const [years, setYears] = useState(10); */
   const [risk, setRisk] = useState("low");
@@ -105,12 +105,6 @@ function App() {
       setNewprincipal(parseInt(principal));
     }
 
-    console.log(years);
-
-    if (years === "" || years === undefined || isNaN(years)) {
-      setYears(1);
-    }
-
     setInputs({
       sip: newprincipal,
       cagr: cagr,
@@ -159,7 +153,6 @@ function App() {
                 type="number"
                 onChange={(e) => setYears(e.target.value)}
                 value={years}
-                min="1"
                 style={{
                   width: "15%",
                 }}
