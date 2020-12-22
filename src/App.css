@@ -289,17 +289,20 @@ input[type="number"]::-webkit-outer-spin-button {
   .edufund {
     height: 100%;
     grid-template-rows: min-content min-content;
+    gap: 20px;
   }
 
   .edufund__rangeselect {
     grid-column: 1 / 3;
+    margin: 0 auto;
+    width: 100%;
   }
 
   .edufund__chart {
     grid-column: 1 / 3;
     padding: 0;
     padding-top: 1em;
-    width: 95%;
+    width: 100%;
   }
 
   .charts-container {
@@ -312,11 +315,17 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .data-overlay {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     padding: 0;
-    margin-bottom: 0.5em;
+    top: auto;
+    right: auto;
+    left: auto;
+    margin: 0.2em auto;
+    /* margin-bottom: 0.5em;
     top: 20%;
-    left: 20%;
+    left: 20%; */
+
+    position: relative;
   }
 
   .background {
