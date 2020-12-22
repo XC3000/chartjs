@@ -303,12 +303,39 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: 20px;
   }
 
+  .edufund__rangeselect__investment_details > input {
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+  }
+
+  .edufund__select__dropdown {
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+  }
+
   .edufund__rangeselect__investment_details {
     font-size: 12px;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.67;
     letter-spacing: 0.19px;
+  }
+
+  .edufund__rangeselect__currencyselect p {
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: 0.22px;
   }
 
   .edufund__rangeselect__currencyselect {
