@@ -123,9 +123,7 @@ function App() {
       <div className="edufund">
         <div className="edufund__rangeselect">
           <div className="edufund__rangeslect__firstsection">
-            <div
-              className="edufund__rangeslect__fsection"
-            >
+            <div className="edufund__rangeslect__fsection">
               <p className="edufund__rangeslect__firstsection__text">
                 It&apos;s your money. <br /> Make the most of it.
               </p>
@@ -180,7 +178,7 @@ function App() {
               </div>
             </div>
             <div className="edufund__rangeselect__expectations">
-              <h2>What to expect</h2>
+              <h2>Make a smart money move with EduFund</h2>
               <div className="edufund__expectations__firstdiv">
                 <img
                   width="35"
@@ -188,7 +186,7 @@ function App() {
                   src="https://chartsjs.s3.us-east-2.amazonaws.com/green.24327dbe.png"
                   alt="green graph"
                 />
-                <div className="edufund__expectations__text">
+                {/* <div className="edufund__expectations__text">
                   <p
                     className="edufund__expectations__text__percentage"
                     style={{ marginRight: "10px" }}
@@ -196,7 +194,7 @@ function App() {
                     15.4%
                   </p>
                   <p className="edufund__expectations__text__text">EduFund</p>
-                </div>
+                </div> */}
                 <p
                   style={{
                     fontSize: "0.7rem",
@@ -204,8 +202,10 @@ function App() {
                     paddingTop: "2px",
                   }}
                 >
-                  Due to scheme selection, asset allocation, & savings on
-                  commissions.
+                  <i>Grow with EduFund</i>
+                  <br />
+                  This is how your child’s education fund can grow when you
+                  invest with EduFund.
                 </p>
               </div>
               <div className="edufund__expectations__seconddiv">
@@ -215,7 +215,7 @@ function App() {
                   src="https://chartsjs.s3.us-east-2.amazonaws.com/black.e868dd38.png"
                   alt="black graph"
                 />
-                <div className="edufund__expectations__text">
+                {/* <div className="edufund__expectations__text">
                   <p
                     className="edufund__expectations__text__percentage"
                     style={{ marginRight: "10px" }}
@@ -223,7 +223,7 @@ function App() {
                     12%
                   </p>
                   <p className="edufund__expectations__text__text">Balanced</p>
-                </div>
+                </div> */}
 
                 <p
                   style={{
@@ -232,8 +232,9 @@ function App() {
                     paddingTop: "2px",
                   }}
                 >
-                  The weighted average return of an aggressive and conservative
-                  investor in ratio of 65:35.
+                  <i>Amount you invest</i> <br />
+                  This is the amount you’ve chosen to set aside for your child,
+                  every month.
                 </p>
               </div>
             </div>
