@@ -54,27 +54,21 @@ class Charts extends Component {
         type: "line",
         data: {
           labels: data.map(({ month }) => month),
-          // .filter((val, index) => index % 3 === 0),
           datasets: [
             {
               label: "Invested Amount",
-              // backgroundColor: "rgb(3, 78, 0, 0.6)",
               backgroundColor: "#021030",
-              // borderColor: "rgb(3, 78, 0, 0.6)",
               borderColor: "#021030",
               data: data.map(({ investedAmount }) => investedAmount / 1000),
-              // .filter((val, index) => index % 3 === 0),
+              showLine: false,
             },
             {
               label: "Accumulated Amount",
-              // backgroundColor: "rgba(0,226,178, 0.4)",
-              // borderColor: "rgba(0,226,178, 0.4)",
               backgroundColor: "#00e2b2",
               borderColor: "#00e2b2",
               data: data.map(
                 ({ accumulatedAmount }) => accumulatedAmount / 1000
               ),
-              // .filter((val, index) => index % 3 === 0),
             },
           ],
         },
@@ -91,14 +85,9 @@ class Charts extends Component {
                   display: true,
                   labelString: "Amount (thousand)",
                 },
-                // ticks: {
-                //     suggestedMax: (
-                //         data[dataPoints - 1][
-                //             "accumulatedAmount"
-                //         ] / 1000
-                //     ).toFixed(2),
-                //     min: inputs.sip / 1000,
-                // },
+                gridLines: {
+                  display: false,
+                },
               },
             ],
             xAxes: [
@@ -110,6 +99,9 @@ class Charts extends Component {
                 ticks: {
                   min: 1,
                   stepSize: 3,
+                },
+                gridLines: {
+                  display: false,
                 },
               },
             ],
@@ -146,8 +138,6 @@ class Charts extends Component {
         },
         {
           label: "Accumulated Amount",
-          // backgroundColor: "rgba(0,226,178, 0.4)",
-          // borderColor: "rgba(0,226,178, 0.4)",
           backgroundColor: "#00e2b2",
           borderColor: "#00e2b2",
           data: data.map(({ accumulatedAmount }) => accumulatedAmount / 1000),
@@ -167,12 +157,9 @@ class Charts extends Component {
               display: true,
               labelString: "Amount (thousand)",
             },
-            // ticks: {
-            //     suggestedMax: (
-            //         data[dataPoints - 1]["accumulatedAmount"] / 1000
-            //     ).toFixed(2),
-            //     min: inputs.sip / 1000,
-            // },
+            gridLines: {
+              display: false,
+            },
           },
         ],
         xAxes: [
@@ -184,6 +171,9 @@ class Charts extends Component {
             ticks: {
               min: 1,
               stepSize: 3,
+            },
+            gridLines: {
+              display: false,
             },
           },
         ],
@@ -201,6 +191,11 @@ class Charts extends Component {
           title: (toolTipItem) => `Month: ${toolTipItem[0]["label"]}`,
         },
       },
+      // scale: {
+      //   gridLines: {
+      //     display: false,
+      //   },
+      // },
     };
     this.state.chart.update({
       duration: 750,
