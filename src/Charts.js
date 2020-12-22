@@ -86,7 +86,7 @@ class Charts extends Component {
                   labelString: "Amount (thousand)",
                 },
                 gridLines: {
-                  display: false,
+                  display: true,
                 },
               },
             ],
@@ -158,7 +158,7 @@ class Charts extends Component {
               labelString: "Amount (thousand)",
             },
             gridLines: {
-              display: false,
+              display: true,
             },
           },
         ],
