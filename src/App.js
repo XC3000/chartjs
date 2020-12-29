@@ -186,27 +186,20 @@ function App() {
                   src="https://chartsjs.s3.us-east-2.amazonaws.com/green.24327dbe.png"
                   alt="green graph"
                 />
-                {/* <div className="edufund__expectations__text">
-                  <p
-                    className="edufund__expectations__text__percentage"
-                    style={{ marginRight: "10px" }}
-                  >
-                    15.4%
-                  </p>
-                  <p className="edufund__expectations__text__text">EduFund</p>
-                </div> */}
-                <p
+                <div
                   style={{
                     fontSize: "0.7rem",
                     width: "60%",
-                    paddingTop: "2px",
                   }}
                 >
-                  <i>Grow with EduFund</i>
-                  <br />
-                  This is how your child’s education fund can grow when you
-                  invest with EduFund.
-                </p>
+                  <p className="edufund__expectations__firstdiv__heading">
+                    Grow with EduFund
+                  </p>
+                  <p className="edufund__expectations__firstdiv__paragraph">
+                    This is how your child’s education fund can grow when you
+                    invest with EduFund.
+                  </p>
+                </div>
               </div>
               <div className="edufund__expectations__seconddiv">
                 <img
@@ -215,27 +208,20 @@ function App() {
                   src="https://chartsjs.s3.us-east-2.amazonaws.com/black.e868dd38.png"
                   alt="black graph"
                 />
-                {/* <div className="edufund__expectations__text">
-                  <p
-                    className="edufund__expectations__text__percentage"
-                    style={{ marginRight: "10px" }}
-                  >
-                    12%
-                  </p>
-                  <p className="edufund__expectations__text__text">Balanced</p>
-                </div> */}
-
-                <p
+                <div
                   style={{
                     fontSize: "0.7rem",
                     width: "60%",
-                    paddingTop: "2px",
                   }}
                 >
-                  <i>Amount you invest</i> <br />
-                  This is the amount you’ve chosen to set aside for your child,
-                  every month.
-                </p>
+                  <p className="edufund__expectations__seconddiv__heading">
+                    Amount you invest
+                  </p>
+                  <p className="edufund__expectations__seconddiv__paragraph">
+                    This is the amount you’ve chosen to set aside for your
+                    child, every month.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
