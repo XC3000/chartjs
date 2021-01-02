@@ -419,6 +419,11 @@ input[type="number"]::-webkit-outer-spin-button {
     display: none;
   }
 
+  .edufund__rangeselect__expectations {
+    padding: 20px !important;
+    margin-bottom: 19px;
+  }
+
   .edufund__rangeselect__expectations h2 {
     margin: 25px 0 15px;
     font-family: Montserrat;
@@ -428,6 +433,40 @@ input[type="number"]::-webkit-outer-spin-button {
     font-style: normal;
     line-height: 1.63;
     letter-spacing: normal;
+  }
+
+  .edufund__expectations__firstdiv {
+    display: flex;
+    justify-content: initial;
+  }
+
+  .edufund__expectations__firstdiv > :first-child {
+    margin-right: 20px;
+  }
+
+  .edufund__expectations__firstdiv__heading {
+    font-size: 12px;
+  }
+
+  .edufund__expectations__firstdiv__paragraph {
+    font-size: 9px;
+  }
+
+  .edufund__expectations__seconddiv {
+    display: flex;
+    justify-content: initial;
+  }
+
+  .edufund__expectations__seconddiv > :first-child {
+    margin-right: 20px;
+  }
+
+  .edufund__expectations__seconddiv__heading {
+    font-size: 12px;
+  }
+
+  .edufund__expectations__seconddiv__paragraph {
+    font-size: 9px;
   }
 }
 
