@@ -114,7 +114,7 @@ class Charts extends Component {
           },
           elements: {
             point: {
-              radius: 2,
+              radius: 0,
               hoverRadius: 5,
               hoverBorderWidth: 3,
               borderColor: "blue",
@@ -150,6 +150,7 @@ class Charts extends Component {
         },
       ],
     };
+
     this.state.chart.options = {
       fill: false,
       title: {
@@ -186,7 +187,7 @@ class Charts extends Component {
       },
       elements: {
         point: {
-          radius: 2,
+          radius: 0,
           hoverRadius: 5,
           hoverBorderWidth: 3,
           borderColor: "blue",
@@ -196,6 +197,12 @@ class Charts extends Component {
         callbacks: {
           title: (toolTipItem) => `Month: ${toolTipItem[0]["label"]}`,
         },
+        mode: "index",
+        intersect: false,
+      },
+      hover: {
+        mode: "nearest",
+        intersect: true,
       },
     };
     this.state.chart.update({
@@ -223,21 +230,9 @@ class Charts extends Component {
   };
 
   render() {
-    const { inputs, totalAcc, totalInv } = this.state;
-
     return (
       <div className="charts-container">
         <canvas id="target"></canvas>
-        <div className="data-overlay">
-          <span>
-            Total Investment: {inputs.curr}
-            <span className="data-total">{totalInv}</span>
-          </span>
-          <span>
-            Total Accumulation: {inputs.curr}
-            <span className="data-total">{totalAcc}</span>
-          </span>
-        </div>
       </div>
     );
   }

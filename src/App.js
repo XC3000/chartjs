@@ -2,6 +2,7 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import Charts from "./Charts";
+import Finance from "financejs";
 
 function App() {
   const [currencyicon, setCurrencyicon] = useState("₹");
@@ -25,6 +26,22 @@ function App() {
   //   alert(1);
   //   window.location.reload();
   // }
+
+  function calculate() {
+    let { time, cagr, sip } = inputs;
+    time = time === 0 ? 1 : time;
+    const finance = new Finance();
+
+    const returnPercent = (Math.pow(1 + cagr / 100, 1 / 12) - 1) * 100;
+    let accumulatedAmount = 0,
+      investedAmount = 0;
+    for (let i = 1; i <= time * 12; i++) {
+      investedAmount = sip * i;
+      accumulatedAmount = finance.FV(returnPercent, sip + accumulatedAmount, 1);
+    }
+
+    /* After this function has run its course, use accumulatedAmount and investedAmount */
+  }
 
   function handleChange(value) {
     setRisk(value);
