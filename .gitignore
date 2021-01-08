@@ -4,3 +4,7 @@ dist
 
 
 .cache
+
+script.js
+
+.env
