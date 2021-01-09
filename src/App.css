@@ -315,7 +315,6 @@ input[type="number"]::-webkit-outer-spin-button {
 .edufund__investementamount {
   display: flex;
   justify-content: space-between;
-  padding: 0 10px;
   margin-bottom: 32px;
   margin-top: 10px;
 }
@@ -341,7 +340,6 @@ input[type="number"]::-webkit-outer-spin-button {
 .edufund__totalamount {
   display: flex;
   justify-content: space-between;
-  padding: 0 10px;
   margin-bottom: 32px;
 }
 
