@@ -69,6 +69,7 @@ const uploadFile = (key) =>
         Key: key,
         Body: fs.readFileSync(`./dist/${key}`),
         ACL: "public-read-write",
+        // GrantFullControl: "READ",
       },
       {},
       (err, data) => {
@@ -112,6 +113,7 @@ const main = async () => {
 
     uploadFiles(files);
   } catch (error) {
+    console.error(error);
     console.log("ERROR");
   }
 };
