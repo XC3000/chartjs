@@ -5,6 +5,9 @@ import Charts from "./Charts";
 import Finance from "financejs";
 
 function App() {
+  const [investmentamount, setInvestmentamount] = useState(15000);
+  const [totalvalue, setTotalvalue] = useState(15000);
+
   const [currencyicon, setCurrencyicon] = useState("₹");
   /* const [selectValue, setSelectValue] = useState(""); */
   const [principal, setPrincipal] = useState(`${currencyicon}15000`);
@@ -27,8 +30,9 @@ function App() {
   //   window.location.reload();
   // }
 
-  function calculate() {
-    let { time, cagr, sip } = inputs;
+  function calculate(sip, cagr, time) {
+    console.log(sip, cagr, time);
+
     time = time === 0 ? 1 : time;
     const finance = new Finance();
 
@@ -39,6 +43,10 @@ function App() {
       investedAmount = sip * i;
       accumulatedAmount = finance.FV(returnPercent, sip + accumulatedAmount, 1);
     }
+
+    console.log(investedAmount, accumulatedAmount);
+    setInvestmentamount(investedAmount);
+    setTotalvalue(accumulatedAmount);
 
     /* After this function has run its course, use accumulatedAmount and investedAmount */
   }
@@ -122,6 +130,8 @@ function App() {
       setNewprincipal(parseInt(principal));
     }
 
+    calculate(newprincipal, cagr, years);
+
     setInputs({
       sip: newprincipal,
       cagr: cagr,
@@ -192,6 +202,23 @@ function App() {
                     ₹
                   </button>
                 </div>
+              </div>
+              <div className="edufund__investementamount">
+                <p className="edufund__investementamount--heading">
+                  Total Investment - {currencyicon}{" "}
+                </p>
+                <p className="edufund__investementamount--amount">
+                  {currencyicon} {investmentamount}
+                </p>
+              </div>
+
+              <div className="edufund__totalamount">
+                <p className="edufund__totalamount--heading">
+                  Total Value - {currencyicon}{" "}
+                </p>
+                <p className="edufund__totalamount--amount">
+                  {currencyicon} {totalvalue}
+                </p>
               </div>
             </div>
             <div className="edufund__rangeselect__expectations">
