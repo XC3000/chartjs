@@ -72,8 +72,8 @@ class Charts extends Component {
               label: "Accumulated Amount",
               backgroundColor: "#00e2b2",
               borderColor: "#00e2b2",
-              data: data.map(
-                ({ accumulatedAmount }) => accumulatedAmount / 1000
+              data: data.map(({ accumulatedAmount }) =>
+                Math.round(accumulatedAmount / 1000)
               ),
             },
           ],
@@ -103,8 +103,8 @@ class Charts extends Component {
                   labelString: "Months",
                 },
                 ticks: {
-                  min: 1,
-                  stepSize: 3,
+                  min: 0,
+                  stepSize: 6,
                 },
                 gridLines: {
                   display: false,
@@ -146,7 +146,9 @@ class Charts extends Component {
           label: "Accumulated Amount",
           backgroundColor: "#00e2b2",
           borderColor: "#00e2b2",
-          data: data.map(({ accumulatedAmount }) => accumulatedAmount / 1000),
+          data: data.map(({ accumulatedAmount }) =>
+            Math.round(accumulatedAmount / 1000)
+          ),
         },
       ],
     };
@@ -177,7 +179,8 @@ class Charts extends Component {
             },
             ticks: {
               min: 1,
-              stepSize: 3,
+              max: this.props.inputs.time * 12,
+              stepSize: 6,
             },
             gridLines: {
               display: false,

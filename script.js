@@ -94,6 +94,7 @@ const uploadFile = (key) =>
         Body: fs.readFileSync(`./dist/${key}`),
         ACL: "public-read-write",
         // GrantFullControl: "READ",
+        GrantReadACP: "public-read-write",
       },
       {},
       (err, data) => {
@@ -143,6 +144,6 @@ const main = async () => {
 };
 
 // Currency: $; Risk: Low
-calculate({ cagr: 5, time: 10, sip: 15000 });
+// calculate({ cagr: 5, time: 10, sip: 15000 });
 
-// main();
+main();

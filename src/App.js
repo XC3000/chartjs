@@ -46,7 +46,7 @@ function App() {
 
     console.log(investedAmount, accumulatedAmount);
     setInvestmentamount(investedAmount);
-    setTotalvalue(accumulatedAmount);
+    setTotalvalue(Math.ceil(accumulatedAmount));
 
     /* After this function has run its course, use accumulatedAmount and investedAmount */
   }
