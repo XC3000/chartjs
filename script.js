@@ -142,6 +142,7 @@ const main = async () => {
   }
 };
 
+// Currency: $; Risk: Low
 calculate({ cagr: 5, time: 10, sip: 15000 });
 
 // main();
