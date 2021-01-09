@@ -1,5 +1,6 @@
 const AWS = require("aws-sdk");
 const fs = require("fs");
+const Finance = require("financejs");
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -11,6 +12,29 @@ AWS.config.update({
 });
 
 const S3 = new AWS.S3({ apiVersion: "2006-03-01" });
+
+const calculate = ({ cagr, time, sip }) => {
+  function Amount(invested, accumulated) {
+    this.investedAmount = invested;
+    this.accumulatedAmount = Math.ceil(accumulated);
+  }
+
+  time = time === 0 ? 1 : time;
+  const finance = new Finance();
+
+  const returnPercent = (Math.pow(1 + cagr / 100, 1 / 12) - 1) * 100;
+  let accumulatedAmount = 0,
+    investedAmount = 0;
+  const rows = [];
+  for (let i = 1; i <= time * 12; i++) {
+    investedAmount = sip * i;
+    accumulatedAmount = finance.FV(returnPercent, sip + accumulatedAmount, 1);
+
+    rows.push(new Amount(investedAmount, accumulatedAmount));
+  }
+
+  console.table(rows);
+};
 
 const listItems = () =>
   new Promise((res, rej) => {
@@ -118,4 +142,6 @@ const main = async () => {
   }
 };
 
-main();
+calculate({ cagr: 5, time: 10, sip: 15000 });
+
+// main();
