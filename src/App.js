@@ -205,7 +205,7 @@ function App() {
               </div>
               <div className="edufund__investementamount">
                 <p className="edufund__investementamount--heading">
-                  Total Investment - {currencyicon}{" "}
+                  Invested Amount - {currencyicon}{" "}
                 </p>
                 <p className="edufund__investementamount--amount">
                   {currencyicon} {investmentamount}
