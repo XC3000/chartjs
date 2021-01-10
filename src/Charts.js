@@ -20,6 +20,27 @@ class Charts extends Component {
   };
 
   generateData = (callback) => {
+    const dateString = new Date().toISOString();
+    let [year, month] = dateString.split("-");
+    year = parseInt(year);
+    month = parseInt(month) % 12;
+    if (month === 0) year++;
+
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+
     let { time, cagr, sip } = Object.assign({}, this.state.inputs);
     time = time === 0 ? 1 : time;
     const finance = new Finance();
@@ -31,11 +52,19 @@ class Charts extends Component {
     for (let i = 1; i <= time * 12; i++) {
       investedAmount = sip * i;
       accumulatedAmount = finance.FV(returnPercent, sip + accumulatedAmount, 1);
+
+      let monthStr = months[month % 12];
+      let displayString = `${monthStr} '${year.toString().substring(2)}`;
+
       dataArray.push({
         month: i,
         accumulatedAmount: Math.round(accumulatedAmount),
         investedAmount,
+        monthDisplay: displayString,
       });
+
+      if (Math.abs(month + 1) % 12 === 0) year++;
+      month++;
     }
 
     this.setState(
@@ -94,6 +123,11 @@ class Charts extends Component {
                 gridLines: {
                   display: true,
                 },
+                ticks: {
+                  callback: function (value, index, values) {
+                    return "$" + value;
+                  },
+                },
               },
             ],
             xAxes: [
@@ -103,8 +137,7 @@ class Charts extends Component {
                   labelString: "Months",
                 },
                 ticks: {
-                  min: 0,
-                  stepSize: 6,
+                  padding: "5",
                 },
                 gridLines: {
                   display: false,
@@ -133,22 +166,46 @@ class Charts extends Component {
 
   updateChart = () => {
     const { data } = this.state;
+    const curr = this.state.inputs.curr;
+
     this.state.chart.data = {
-      labels: data.map(({ month }) => month),
+      labels: data.map(({ monthDisplay }) => monthDisplay),
       datasets: [
         {
           label: "Invested Amount",
           backgroundColor: "#021030",
           borderColor: "#021030",
-          data: data.map(({ investedAmount }) => investedAmount / 1000),
+          data: data.map(({ investedAmount }) => {
+            let { curr } = this.state.inputs,
+              text,
+              val;
+            if (curr === "$") {
+              text = "Th.";
+              val = (investedAmount / 1000).toFixed(2);
+            } else {
+              text = "Lac.";
+              val = (investedAmount / 100000).toFixed(2);
+            }
+            return val;
+          }),
         },
         {
           label: "Accumulated Amount",
           backgroundColor: "#00e2b2",
           borderColor: "#00e2b2",
-          data: data.map(({ accumulatedAmount }) =>
-            Math.round(accumulatedAmount / 1000)
-          ),
+          data: data.map(({ accumulatedAmount }) => {
+            let { curr } = this.state.inputs,
+              text,
+              val;
+            if (curr === "$") {
+              text = "Th.";
+              val = (accumulatedAmount / 1000).toFixed(2);
+            } else {
+              text = "Lac.";
+              val = (accumulatedAmount / 100000).toFixed(2);
+            }
+            return val;
+          }),
         },
       ],
     };
@@ -164,10 +221,15 @@ class Charts extends Component {
           {
             scaleLabel: {
               display: true,
-              labelString: "Amount (thousand)",
+              labelString: `Amount (${curr})`,
             },
             gridLines: {
               display: true,
+            },
+            ticks: {
+              callback: function (value, index, values) {
+                return `${value} ${curr === "$" ? "Th." : "Lac."}`;
+              },
             },
           },
         ],
@@ -175,12 +237,11 @@ class Charts extends Component {
           {
             scaleLabel: {
               display: true,
-              labelString: "Months",
+              labelString: "Time",
             },
             ticks: {
-              min: 1,
-              max: this.props.inputs.time * 12,
-              stepSize: 6,
+              padding: 5,
+              lineHeight: 1.75,
             },
             gridLines: {
               display: false,

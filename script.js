@@ -93,8 +93,8 @@ const uploadFile = (key) =>
         Key: key,
         Body: fs.readFileSync(`./dist/${key}`),
         ACL: "public-read-write",
-        // GrantFullControl: "READ",
-        GrantReadACP: "public-read-write",
+        GrantFullControl: "uri=http://acs.amazonaws.com/groups/global/AllUsers",
+        // GrantReadACP: "uri=http://acs.amazonaws.com/groups/global/AllUsers",
       },
       {},
       (err, data) => {
@@ -143,7 +143,44 @@ const main = async () => {
   }
 };
 
+const genDates = (time = 10) => {
+  const dateString = new Date().toISOString();
+  let [year, month] = dateString.split("-");
+  year = parseInt(year);
+  month = parseInt(month) % 12;
+  if (month === 0) year++;
+
+  console.log({ year, month });
+
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  const dataArr = [];
+  for (let i = 1; i <= time * 12; i++) {
+    let monthStr = months[month % 12];
+    let displayString = `${monthStr} '${year.toString().substring(2)}`;
+    console.log(displayString);
+    dataArr.push(displayString);
+    if (Math.abs(month + 1) % 12 === 0) year++;
+    month++;
+  }
+};
+
+genDates();
+
 // Currency: $; Risk: Low
 // calculate({ cagr: 5, time: 10, sip: 15000 });
 
-main();
+// main();
