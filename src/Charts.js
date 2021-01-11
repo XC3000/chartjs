@@ -266,6 +266,12 @@ class Charts extends Component {
       tooltips: {
         callbacks: {
           title: (toolTipItem) => `Month: ${toolTipItem[0]["label"]}`,
+          label: function (tooltipItem, data) {
+            const label = data.datasets[tooltipItem.datasetIndex].label || "";
+            return `${label}: ${tooltipItem.yLabel} ${
+              curr === "$" ? "K" : "Lac."
+            }`;
+          },
         },
         mode: "index",
         intersect: false,
