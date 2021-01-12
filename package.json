@@ -37,6 +37,7 @@
     "antd": "^4.9.4",
     "aws-sdk": "^2.824.0",
     "chart.js": "^2.9.4",
+    "comma-number": "^2.0.1",
     "dotenv": "^8.2.0",
     "financejs": "^4.1.0",
     "react": "^17.0.1",

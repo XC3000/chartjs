@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import Charts from "./Charts";
 import Finance from "financejs";
 
+var commaNumber = require("comma-number");
+
 function App() {
   const [investmentamount, setInvestmentamount] = useState(15000);
   const [totalvalue, setTotalvalue] = useState(15000);
@@ -45,8 +47,13 @@ function App() {
     }
 
     console.log(investedAmount, accumulatedAmount);
+    console.log(commaNumber(2580283.23));
+
+    investedAmount = commaNumber(investedAmount);
+    accumulatedAmount = commaNumber(Math.ceil(accumulatedAmount));
+
     setInvestmentamount(investedAmount);
-    setTotalvalue(Math.ceil(accumulatedAmount));
+    setTotalvalue(accumulatedAmount);
 
     /* After this function has run its course, use accumulatedAmount and investedAmount */
   }
