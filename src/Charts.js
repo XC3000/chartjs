@@ -113,6 +113,9 @@ class Charts extends Component {
             display: true,
             text: "SIP Calculator",
           },
+          legend: {
+            display: false,
+          },
           scales: {
             yAxes: [
               {
@@ -216,6 +219,9 @@ class Charts extends Component {
         display: true,
         text: "SIP Calculator",
       },
+      legend: {
+        display: false,
+      },
       scales: {
         yAxes: [
           {
@@ -228,7 +234,7 @@ class Charts extends Component {
             },
             ticks: {
               callback: function (value, index, values) {
-                return `${value} ${curr === "$" ? "Th." : "Lac."}`;
+                return `${value} ${curr === "$" ? "K" : "Lac."}`;
               },
             },
           },
@@ -236,12 +242,12 @@ class Charts extends Component {
         xAxes: [
           {
             scaleLabel: {
-              display: true,
+              display: false,
               labelString: "Time",
             },
             ticks: {
               padding: 5,
-              lineHeight: 1.75,
+              lineHeight: 2.8,
             },
             gridLines: {
               display: false,
@@ -260,6 +266,12 @@ class Charts extends Component {
       tooltips: {
         callbacks: {
           title: (toolTipItem) => `Month: ${toolTipItem[0]["label"]}`,
+          label: function (tooltipItem, data) {
+            const label = data.datasets[tooltipItem.datasetIndex].label || "";
+            return `${label}: ${tooltipItem.yLabel} ${
+              curr === "$" ? "K" : "Lac."
+            }`;
+          },
         },
         mode: "index",
         intersect: false,
