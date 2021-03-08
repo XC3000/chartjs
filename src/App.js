@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import "./App.css";
 import React, { useEffect, useState } from "react";
 import Charts from "./Charts";
 import Finance from "financejs";
@@ -154,6 +153,7 @@ function App() {
 
   return (
     <div className="App">
+      <Alert type="success" text="Address Updated Successfully." />
       <div className="edufund">
         <div className="edufund__rangeselect">
           <div className="edufund__rangeslect__firstsection">
