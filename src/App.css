@@ -518,7 +518,7 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .edufund__investementamount .edufund__investementamount--amount {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .edufund__totalamount {
@@ -530,7 +530,7 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .edufund__totalamount p {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 
