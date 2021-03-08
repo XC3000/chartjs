@@ -159,7 +159,7 @@ function App() {
           <div className="edufund__rangeslect__firstsection">
             <div className="edufund__rangeslect__fsection">
               <p className="edufund__rangeslect__firstsection__text">
-                It&apos;s your money. <br /> Make the most of it.
+                It&apos;s your child’s future. <br /> Make the most of it.
               </p>
               <div className="edufund__rangeselect__investment_details">
                 I can invest{" "}
