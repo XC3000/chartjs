@@ -24,13 +24,6 @@ function App() {
     curr: "₹",
   });
 
-  // window.addEventListener("resize", changeDivSize);
-
-  // function changeDivSize() {
-  //   alert(1);
-  //   window.location.reload();
-  // }
-
   function calculate(sip, cagr, time) {
     console.log(sip, cagr, time);
 
@@ -153,7 +146,6 @@ function App() {
 
   return (
     <div className="App">
-      <Alert type="success" text="Address Updated Successfully." />
       <div className="edufund">
         <div className="edufund__rangeselect">
           <div className="edufund__rangeslect__firstsection">
